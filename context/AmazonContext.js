@@ -211,12 +211,10 @@ export const AmazonProvider = ({ children }) => {
     try {
       // let query = new Moralis.Query('_User')
       // let results = await query.find()
-
-      console.log(userData[0])
-      if (userData[0].attributes.ownedAsset) {
+      if (userData[0].attributes.ownedAssets) {
         setOwnedItems(prevItems => [
           ...prevItems,
-          userData[0].attributes.ownedAsset,
+          userData[0].attributes.ownedAssets,
         ])
       }
     } catch (error) {
