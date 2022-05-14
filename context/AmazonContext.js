@@ -170,7 +170,7 @@ export const AmazonProvider = ({ children }) => {
         // const query = new Moralis.Query('_User')
         // const results = await query.find()
 
-        const res = userData[0].add('ownedAsset', {
+        const res = userData[0].add('ownedAssets', {
           ...asset,
           purchaseDate: Date.now(),
           etherscanLink: `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`,
