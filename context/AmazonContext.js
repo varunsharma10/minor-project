@@ -38,7 +38,7 @@ export const AmazonProvider = ({ children }) => {
     data: assetsData,
     error: assetsDataError,
     isLoading: assetsDataIsLoading,
-  } = useMoralisQuery('assets')
+  } = useMoralisQuery('Assets')
 
   useEffect(async () => {
     console.log(assetsData)
@@ -170,7 +170,7 @@ export const AmazonProvider = ({ children }) => {
         // const query = new Moralis.Query('_User')
         // const results = await query.find()
 
-        const res = userData[0].add('ownedAssets', {
+        const res = userData[0].add('ownedAsset', {
           ...asset,
           purchaseDate: Date.now(),
           etherscanLink: `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`,
@@ -188,8 +188,8 @@ export const AmazonProvider = ({ children }) => {
   const getAssets = async () => {
     try {
       await enableWeb3()
-      const query = new Moralis.Query('assets')
-      const results = await query.find()
+      // const query = new Moralis.Query('Assets')
+      // const results = await query.find()
 
       setAssets(assetsData)
     } catch (error) {
@@ -211,7 +211,8 @@ export const AmazonProvider = ({ children }) => {
     try {
       // let query = new Moralis.Query('_User')
       // let results = await query.find()
-      if (userData[0].attributes.ownedAssets) {
+
+      if (userData[0]) {
         setOwnedItems(prevItems => [
           ...prevItems,
           userData[0].attributes.ownedAssets,
